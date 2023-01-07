@@ -21,6 +21,11 @@ const Menu = () => {
           onPress={() => navigation.navigate('Game')}
           color="green"
         />
+        <Button
+          title="Game Settings"
+          onPress={() => navigation.navigate('Rules')}
+          color="blue"
+        />
       </View>
     </View>
   );
@@ -56,7 +61,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     borderRadius: 500,
   },
-  button: {marginTop: 25, width: 200, justifyContent: 'center', flex: 1},
+  button: {marginTop: 25, width: 200, justifyContent: 'space-between', flex: 1},
 });
 
 export default Menu;

@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Menu from './screens/Menu';
 import Game from './screens/Game';
 import Win from './screens/Win';
+import Rules from './screens/Rules';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -15,6 +16,7 @@ const App = () => {
           <Stack.Screen name="Menu" component={Menu} />
           <Stack.Screen name="Game" component={Game} />
           <Stack.Screen name="Win" component={Win} />
+          <Stack.Screen name="Rules" component={Rules} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
