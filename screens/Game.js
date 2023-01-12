@@ -43,6 +43,9 @@ const Game = () => {
   useEffect(() => {
     if (isWin) {
       setTimeout(() => {
+        colors.forEach(color => {
+          color.isChosen = false;
+        });
         navigation.navigate('Win');
       }, 1000);
     }

@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     color: 'red',
-    fontSize: 50,
+    fontSize: 45,
     fontFamily: 'monospace',
   },
   scroll: {
