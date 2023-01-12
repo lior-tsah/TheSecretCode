@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Button, StyleSheet, View} from 'react-native';
 import Board from '../components/Board';
 import NavColors from '../components/NavColors';
@@ -9,6 +9,8 @@ import {
   colors,
   Results,
   arrayDeepClone,
+  winningURL,
+  loseURL,
 } from '../data';
 import {useNavigation} from '@react-navigation/native';
 
@@ -21,9 +23,9 @@ const Game = () => {
   const [secretCode, setSecretCode] = useState([]);
   const [colorsInTurn, setColorsInTurn] = useState([]);
   const [turns, setTurns] = useState(arrayDeepClone(initialTurns));
-  const [isWin, setWinning] = useState(false);
+  const [isGameOver, setGameOver] = useState(false);
   const [results, setResults] = useState([...initialResults]);
-
+  const urlToSend = useRef();
   const currentTurn = numOfTurn >= 0 ? turns[numOfTurn] : null;
 
   const onPressBoard = key => {
@@ -41,15 +43,15 @@ const Game = () => {
   };
 
   useEffect(() => {
-    if (isWin) {
+    if (isGameOver) {
       setTimeout(() => {
         colors.forEach(color => {
           color.isChosen = false;
         });
-        navigation.navigate('Win');
+        navigation.navigate('Win', urlToSend.current);
       }, 1000);
     }
-  }, [isWin]);
+  }, [isGameOver]);
 
   const calculateResults = () => {
     setColorsInTurn([]);
@@ -83,9 +85,9 @@ const Game = () => {
     }
 
     if (results[numOfTurn].every(res => res === Results.Bull)) {
-      setWinning(true);
-    }
-    setNumOfTurn(numOfTurn - 1);
+      urlToSend.current = winningURL;
+      setGameOver(true);
+    } else setNumOfTurn(numOfTurn - 1);
   };
   const generateRandomInteger = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -106,7 +108,8 @@ const Game = () => {
 
   useEffect(() => {
     if (numOfTurn < 0) {
-      setWinning(true);
+      urlToSend.current = loseURL;
+      setGameOver(true);
     }
   }, [numOfTurn]);
 

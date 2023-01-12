@@ -1,14 +1,15 @@
 import React from 'react';
 import {StyleSheet, Image, View, Button} from 'react-native';
-import {winningURL} from '../data';
+
 import {useNavigation} from '@react-navigation/native';
 const Win = props => {
   const navigation = useNavigation();
+  const url = props.route.params;
   return (
     <View style={styles.main}>
       <Image
         source={{
-          uri: winningURL,
+          uri: url,
         }}
         style={styles.winning}
       />
