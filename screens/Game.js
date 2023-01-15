@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useRef, useState} from 'react';
-import {Button, StyleSheet, View} from 'react-native';
+import {Button, StyleSheet, View, Alert} from 'react-native';
 import Board from '../components/Board';
 import NavColors from '../components/NavColors';
 import {
@@ -45,9 +45,6 @@ const Game = () => {
   useEffect(() => {
     if (isGameOver) {
       setTimeout(() => {
-        colors.forEach(color => {
-          color.isChosen = false;
-        });
         navigation.navigate('Win', urlToSend.current);
       }, 1000);
     }
@@ -101,6 +98,11 @@ const Game = () => {
         temp.push(colors[num]);
       }
     }
+
+    colors.forEach(color => {
+      color.isChosen = false;
+    });
+
     setSecretCode(temp);
     setTurns(arrayDeepClone(initialTurns));
     setResults([...initialResults]);
@@ -113,6 +115,31 @@ const Game = () => {
     }
   }, [numOfTurn]);
 
+  const showConfirmDialog = () => {
+    return Alert.alert(
+      'Are your sure?',
+      'Are you sure you want to watch the secret code now?',
+      [
+        // The "Yes" button
+        {
+          text: 'Yes',
+          onPress: () => setShowSecretCode(true),
+        },
+        // The "No" button
+        // Does nothing but dismiss the dialog when tapped
+        {
+          text: 'No',
+        },
+      ],
+    );
+  };
+  const onPressShowSecret = () => {
+    if (isShowSecretCode) {
+      setShowSecretCode(false);
+    } else {
+      showConfirmDialog();
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.main}>
@@ -141,7 +168,7 @@ const Game = () => {
         <View style={{width: '30%'}}>
           <Button
             title="Show Me the secret"
-            onPress={() => setShowSecretCode(!isShowSecretCode)}
+            onPress={onPressShowSecret}
             color="red"
           />
         </View>

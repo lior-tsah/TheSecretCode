@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 
 const Turn = props => {
   const {turnIndex, turn, numOfTurn, onPressBoard, result, chosenColor} = props;
@@ -39,6 +39,15 @@ const Turn = props => {
           </TouchableOpacity>
         ))}
       </View>
+      <View style={styles.num}>
+        <Text
+          style={[
+            styles.numText,
+            turnIndex === numOfTurn && {color: '#b5ff36'},
+          ]}>
+          {10 - turnIndex}
+        </Text>
+      </View>
       <View style={styles.results} />
       {result.map((res, i) => renderResults(res, i))}
     </View>
@@ -53,6 +62,15 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderColor: '#000',
     borderWidth: 5,
+  },
+  num: {
+    flex: 8,
+    alignItems: 'center',
+    marginRight: 5,
+  },
+  numText: {
+    fontWeight: 'bold',
+    fontSize: 16,
   },
   resball: {
     borderRadius: 25,
@@ -70,16 +88,16 @@ const styles = StyleSheet.create({
   soldiers: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flex: 5,
+    flex: 50,
   },
   results: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flex: 1,
+    flex: 5,
     height: '100%',
     borderRightWidth: 3,
     borderRightColor: '#fff',
-    marginRight: 20,
+    marginRight: 5,
   },
 });
 
