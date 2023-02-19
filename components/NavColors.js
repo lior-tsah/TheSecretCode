@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   ball: {
     borderRadius: 100,
     width: 50,
-    height: "10%",
+    height: 50,
     borderColor: '#000',
     borderWidth: 1,
   },

@@ -30,7 +30,7 @@ const Settings = props => {
   };
   useEffect(() => {
     spin();
-  }, []);
+  }, [currLanguage]);
 
   return (
     <View style={{height: '100%', backgroundColor: '#00004f'}}>
