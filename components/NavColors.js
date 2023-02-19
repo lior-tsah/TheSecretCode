@@ -30,14 +30,13 @@ const styles = StyleSheet.create({
   ball: {
     borderRadius: 100,
     width: 50,
-    height: 50,
-    marginVertical: 10,
+    height: "10%",
     borderColor: '#000',
     borderWidth: 1,
   },
   navMenu: {
     alignItems: 'flex-start',
-    height: '80%',
+    height: '90%',
     justifyContent: 'space-between',
     paddingLeft: 10,
     flex: 1,

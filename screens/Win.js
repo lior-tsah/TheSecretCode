@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Image, View, Button} from 'react-native';
-
+import {language} from '../data';
 import {useNavigation} from '@react-navigation/native';
 const Win = props => {
   const navigation = useNavigation();
@@ -15,7 +15,7 @@ const Win = props => {
       />
       <View style={styles.buttons}>
         <Button
-          title="Go To Main Menu"
+          title={language.en.backToMainMenuBtn}
           onPress={() => navigation.navigate('Menu')}
         />
       </View>

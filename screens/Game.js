@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState, useContext} from 'react';
 import {Button, StyleSheet, View, Alert} from 'react-native';
 import Board from '../components/Board';
 import NavColors from '../components/NavColors';
@@ -11,12 +11,14 @@ import {
   arrayDeepClone,
   winningURL,
   loseURL,
+  language,
 } from '../data';
 import {useNavigation} from '@react-navigation/native';
+import {LanguageContext} from '../LanguageContext';
 
-const Game = () => {
+const Game = props => {
   const navigation = useNavigation();
-
+  const {currLanguage} = useContext(LanguageContext);
   const [chosenColor, setChosenColor] = useState();
   const [numOfTurn, setNumOfTurn] = useState(9);
   const [isShowSecretCode, setShowSecretCode] = useState(false);
@@ -117,18 +119,18 @@ const Game = () => {
 
   const showConfirmDialog = () => {
     return Alert.alert(
-      'Are your sure?',
-      'Are you sure you want to watch the secret code now?',
+      language[currLanguage].warningAlertTitle,
+      language[currLanguage].warningAlertDetails,
       [
         // The "Yes" button
         {
-          text: 'Yes',
+          text: language[currLanguage].yes,
           onPress: () => setShowSecretCode(true),
         },
         // The "No" button
         // Does nothing but dismiss the dialog when tapped
         {
-          text: 'No',
+          text: language[currLanguage].no,
         },
       ],
     );
@@ -156,7 +158,7 @@ const Game = () => {
       </View>
       <View style={styles.finshTurnbutton}>
         <Button
-          title="Make a move!"
+          title={language[currLanguage].makeMoveBtn}
           onPress={calculateResults}
           disabled={
             !currentTurn ||
@@ -167,14 +169,14 @@ const Game = () => {
       <View style={styles.button}>
         <View style={{width: '30%'}}>
           <Button
-            title="Show Me the secret"
+            title={language[currLanguage].showSecretBtn}
             onPress={onPressShowSecret}
             color="red"
           />
         </View>
         <View style={{width: '30%'}}>
           <Button
-            title="Back to main menu"
+            title={language[currLanguage].backToMainMenuBtn}
             onPress={() => navigation.navigate('Menu')}
             color="green"
           />

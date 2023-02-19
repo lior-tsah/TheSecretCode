@@ -1,47 +1,42 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Text, Button, View, ScrollView, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-
-const Rules = () => {
+import {language} from '../data';
+import {LanguageContext} from '../LanguageContext';
+const Rules = props => {
   const navigation = useNavigation();
+  const {currLanguage, setCurrLanguage} = useContext(LanguageContext);
 
+  const textArray = [
+    language[currLanguage].text2,
+    language[currLanguage].text3,
+    language[currLanguage].text4,
+    language[currLanguage].text5,
+  ];
   return (
     <View style={styles.main}>
-      <Text style={styles.title}>How To Play?</Text>
+      <Text style={styles.title}>{language[currLanguage].ruleTitle}</Text>
 
       <ScrollView style={styles.scroll}>
-        <Text style={styles.subTitle}>Goal:</Text>
-        <Text style={styles.text}>
-          You need to find the code consisting of four different colors.
+        <Text style={styles.subTitle}>
+          {language[currLanguage].ruleSubTitle1}
         </Text>
-        <Text style={styles.subTitle}>Gameplay:</Text>
-        <Text style={styles.text}>
-          You have 10 turns. (The first starts from the bottom line).
+        <Text style={styles.text}>{language[currLanguage].text1}</Text>
+        <Text style={styles.subTitle}>
+          {language[currLanguage].ruleSubTitle2}
         </Text>
-        <Text style={styles.text}>
-          In each turn you must choose 4 different colors in a row as follows:
-          You must choose a color from the color list on the side. After the
-          color is selected, it can be placed in the board by clicking on the
-          board in the appropriate place.
-        </Text>
-        <Text style={styles.text}>
-          After four colors have been selected, the turn can be ended. As long
-          as the turn is not over, you can remove a selected color from the
-          board by clicking on it. After a turn ends, we are given hints as
-          follows:
-        </Text>
-        <Text style={styles.text}>
-          For each correct color that is in the correct position in the
-          sequence, you get a "bull" (indicated by a red pin). For each correct
-          color that is not in the correct position in the sequence, you get a
-          "hit" (yellow pin). The game ends in victory when all four colors are
-          discovered in the correct position (four "bulls").
-        </Text>
+        {textArray.map((text, index) => (
+          <Text style={styles.text} key={index}>
+            {text}
+          </Text>
+        ))}
       </ScrollView>
       <View style={{marginBottom: 15}}>
         <Button
-          title="Back"
-          onPress={() => navigation.navigate('Menu')}
+          title={language[currLanguage].backBtn}
+          onPress={() =>
+            navigation.navigate('Settings')
+          }
           color="green"
         />
       </View>

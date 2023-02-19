@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, Text, View, Image, Button} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {menuURL} from '../data';
+import {menuURL, language} from '../data';
+import { LanguageContext } from '../LanguageContext';
 const Menu = () => {
   const navigation = useNavigation();
-
+  const {currLanguage} = useContext(LanguageContext);
   return (
     <View style={styles.startMenu}>
-      <Text style={styles.title}>The Secret Code </Text>
+      <Text style={styles.title}>{language[currLanguage].mainTitle} </Text>
 
       <Image
         source={{
@@ -17,13 +18,17 @@ const Menu = () => {
       />
       <View style={styles.button}>
         <Button
-          title="Start Game"
-          onPress={() => navigation.navigate('Game')}
+          title={language[currLanguage].startGameBtn}
+          onPress={() =>
+            navigation.navigate('Game')
+          }
           color="green"
         />
         <Button
-          title="Game Settings"
-          onPress={() => navigation.navigate('Rules')}
+          title={language[currLanguage].gameSettings}
+          onPress={() =>
+            navigation.navigate('Settings')
+          }
           color="blue"
         />
       </View>
