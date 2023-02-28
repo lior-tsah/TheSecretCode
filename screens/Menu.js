@@ -2,10 +2,10 @@ import React, {useContext} from 'react';
 import {StyleSheet, Text, View, Image, Button} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {menuURL, language} from '../data';
-import { LanguageContext } from '../LanguageContext';
+import { SettingsContext } from '../SettingsContext';
 const Menu = () => {
   const navigation = useNavigation();
-  const {currLanguage} = useContext(LanguageContext);
+  const {currLanguage} = useContext(SettingsContext);
   return (
     <View style={styles.startMenu}>
       <Text style={styles.title}>{language[currLanguage].mainTitle} </Text>

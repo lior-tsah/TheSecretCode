@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, Image, View, Button} from 'react-native';
 import {language} from '../data';
 import {useNavigation} from '@react-navigation/native';
+import {SettingsContext} from '../SettingsContext';
+
 const Win = props => {
   const navigation = useNavigation();
   const url = props.route.params;
+  const {currLanguage} = useContext(SettingsContext);
+
   return (
     <View style={styles.main}>
       <Image
@@ -15,7 +19,7 @@ const Win = props => {
       />
       <View style={styles.buttons}>
         <Button
-          title={language.en.backToMainMenuBtn}
+          title={language[currLanguage].backToMainMenuBtn}
           onPress={() => navigation.navigate('Menu')}
         />
       </View>
@@ -29,6 +33,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
     height: '100%',
+    backgroundColor: '#00004f'
   },
   winning: {
     width: '100%',

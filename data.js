@@ -1,12 +1,34 @@
-export const colors = [
-  {color: '#ed81a1', id: 0, key: 0, isChosen: false}, //pink
-  {color: '#be0000', id: 1, key: 1, isChosen: false}, //red
-  {color: '#836F6F', id: 2, key: 2, isChosen: false}, //gray
-  {color: '#FFE135', id: 3, key: 3, isChosen: false}, //yellow
-  {color: '#5BC85B', id: 4, key: 4, isChosen: false}, //green
-  {color: '#FF6700', id: 5, key: 5, isChosen: false}, //orange
-  {color: '#FFFFFF', id: 6, key: 6, isChosen: false}, //white
-  {color: '#800080', id: 7, key: 7, isChosen: false}, //purple
+export const colorsByLevels = [
+  [
+    {color: '#ed81a1', id: 0, key: 0, isChosen: false}, //pink
+    {color: '#be0000', id: 1, key: 1, isChosen: false}, //red
+    {color: '#836F6F', id: 2, key: 2, isChosen: false}, //gray
+    {color: '#FFE135', id: 3, key: 3, isChosen: false}, //yellow
+    {color: '#5BC85B', id: 4, key: 4, isChosen: false}, //green
+    {color: '#FF6700', id: 5, key: 5, isChosen: false}, //orange
+  ],
+  [
+    {color: '#ed81a1', id: 0, key: 0, isChosen: false}, //pink
+    {color: '#be0000', id: 1, key: 1, isChosen: false}, //red
+    {color: '#836F6F', id: 2, key: 2, isChosen: false}, //gray
+    {color: '#FFE135', id: 3, key: 3, isChosen: false}, //yellow
+    {color: '#5BC85B', id: 4, key: 4, isChosen: false}, //green
+    {color: '#FF6700', id: 5, key: 5, isChosen: false}, //orange
+    {color: '#FFFFFF', id: 6, key: 6, isChosen: false}, //white
+    {color: '#800080', id: 7, key: 7, isChosen: false}, //purple
+  ],
+  [
+    {color: '#ed81a1', id: 0, key: 0, isChosen: false}, //pink
+    {color: '#be0000', id: 1, key: 1, isChosen: false}, //red
+    {color: '#836F6F', id: 2, key: 2, isChosen: false}, //gray
+    {color: '#FFE135', id: 3, key: 3, isChosen: false}, //yellow
+    {color: '#5BC85B', id: 4, key: 4, isChosen: false}, //green
+    {color: '#FF6700', id: 5, key: 5, isChosen: false}, //orange
+    {color: '#FFFFFF', id: 6, key: 6, isChosen: false}, //white
+    {color: '#800080', id: 7, key: 7, isChosen: false}, //purple
+    {color: '#000000', id: 8, key: 8, isChosen: false}, //black
+    {color: '#41D8D8', id: 9, key: 9, isChosen: false}, //cyan
+  ],
 ];
 export const initialTurns = [
   {a: null, b: null, c: null, d: null},
@@ -62,7 +84,7 @@ export const language = {
     yes: 'כן',
     no: 'לא',
 
-    //Menu
+    //--------- Menu ---------
     mainTitle: 'בול פגיעה',
     startGameBtn: 'התחל משחק',
     gameSettings: 'הגדרות',
@@ -79,9 +101,15 @@ export const language = {
     backBtn: 'חזרה',
 
     //------- Settings -----------
-    changeLanguageBtn: 'שנה שפה',
+    selectLanguagePlacehlder: 'בחר שפה',
     rulesBtn: 'חוקים',
     settings: 'הגדרות',
+
+    //--------- Level ---------
+    easy: 'קל',
+    medium: 'בינוני',
+    high: 'קשה',
+    levelPlaceholder: 'בחר רמת קושי',
   },
   en: {
     //------- Game ---------
@@ -120,8 +148,14 @@ export const language = {
     backBtn: 'Back',
 
     //------- Settings -----------
-    changeLanguageBtn: 'Change Language',
+    selectLanguagePlacehlder: 'Select Language',
     rulesBtn: 'Rules',
     settings: 'Game Settings',
+
+    //--------- Level ---------
+    easy: 'Easy',
+    medium: 'Medium',
+    high: 'High',
+    levelPlaceholder: 'Select a level',
   },
 };

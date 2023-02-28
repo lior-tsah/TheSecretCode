@@ -6,13 +6,16 @@ import Game from './screens/Game';
 import Win from './screens/Win';
 import Rules from './screens/Rules';
 import Settings from './screens/Settings';
-import {LanguageContext} from './LanguageContext';
+import {SettingsContext} from './SettingsContext';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
   const [currLanguage, setCurrLanguage] = useState('en');
+  const [level, setLevel] = useState(1);
+
   return (
-    <LanguageContext.Provider value={{currLanguage, setCurrLanguage}}>
+    <SettingsContext.Provider
+      value={{currLanguage, setCurrLanguage, level, setLevel}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Group>
@@ -24,7 +27,7 @@ const App = () => {
           </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>
-    </LanguageContext.Provider>
+    </SettingsContext.Provider>
   );
 };
 

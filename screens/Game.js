@@ -6,7 +6,7 @@ import NavColors from '../components/NavColors';
 import {
   initialTurns,
   initialResults,
-  colors,
+  colorsByLevels,
   Results,
   arrayDeepClone,
   winningURL,
@@ -14,11 +14,11 @@ import {
   language,
 } from '../data';
 import {useNavigation} from '@react-navigation/native';
-import {LanguageContext} from '../LanguageContext';
+import {SettingsContext} from '../SettingsContext';
 
 const Game = props => {
   const navigation = useNavigation();
-  const {currLanguage} = useContext(LanguageContext);
+  const {currLanguage, level} = useContext(SettingsContext);
   const [chosenColor, setChosenColor] = useState();
   const [numOfTurn, setNumOfTurn] = useState(9);
   const [isShowSecretCode, setShowSecretCode] = useState(false);
@@ -29,6 +29,7 @@ const Game = props => {
   const [results, setResults] = useState([...initialResults]);
   const urlToSend = useRef();
   const currentTurn = numOfTurn >= 0 ? turns[numOfTurn] : null;
+  const colors = colorsByLevels[level];
 
   const onPressBoard = key => {
     if (!currentTurn[key]) {
@@ -95,7 +96,7 @@ const Game = props => {
   useEffect(() => {
     let temp = [];
     while (temp.length < 4) {
-      const num = generateRandomInteger(0, 7);
+      const num = generateRandomInteger(0, colors.length - 1);
       if (temp.every(color => color?.id !== num)) {
         temp.push(colors[num]);
       }
@@ -187,7 +188,7 @@ const Game = props => {
 };
 
 const styles = StyleSheet.create({
-  container: {height: '100%', backgroundColor: '#22160B'},
+  container: {height: '100%', backgroundColor: '#00004f'},
   main: {
     justifyContent: 'space-between',
     flex: 10,

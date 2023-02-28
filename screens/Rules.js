@@ -2,10 +2,10 @@ import React, {useContext} from 'react';
 import {Text, Button, View, ScrollView, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {language} from '../data';
-import {LanguageContext} from '../LanguageContext';
+import {SettingsContext} from '../SettingsContext';
 const Rules = props => {
   const navigation = useNavigation();
-  const {currLanguage, setCurrLanguage} = useContext(LanguageContext);
+  const {currLanguage, setCurrLanguage} = useContext(SettingsContext);
 
   const textArray = [
     language[currLanguage].text2,

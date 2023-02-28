@@ -10,7 +10,11 @@ const NavColors = props => {
           key={color.id}
           style={[
             styles.ball,
-            {backgroundColor: color.color},
+            {
+              backgroundColor: color.color,
+              width: colors.length > 8 ? 45 : 50,
+              height: colors.length > 8 ? 45 : 50,
+            },
             color.isChosen && styles.chosen,
           ]}
           onPress={() => {
@@ -29,8 +33,6 @@ const NavColors = props => {
 const styles = StyleSheet.create({
   ball: {
     borderRadius: 100,
-    width: 50,
-    height: 50,
     borderColor: '#000',
     borderWidth: 1,
   },
