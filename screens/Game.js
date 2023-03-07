@@ -26,6 +26,8 @@ const Game = props => {
   const [colorsInTurn, setColorsInTurn] = useState([]);
   const [turns, setTurns] = useState(arrayDeepClone(initialTurns));
   const [isGameOver, setGameOver] = useState(false);
+  const [updatebySelect, setUpdatebySelect] = useState(false);
+
   const [results, setResults] = useState([...initialResults]);
   const urlToSend = useRef();
   const currentTurn = numOfTurn >= 0 ? turns[numOfTurn] : null;
@@ -104,6 +106,7 @@ const Game = props => {
 
     colors.forEach(color => {
       color.isChosen = false;
+      color.isSelected = false;
     });
 
     setSecretCode(temp);
@@ -146,7 +149,13 @@ const Game = props => {
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <NavColors setChosenColor={setChosenColor} colors={colors} />
+        <NavColors
+          setChosenColor={setChosenColor}
+          chosenColor={chosenColor}
+          colors={colors}
+          updatebySelect={updatebySelect}
+          setUpdatebySelect={setUpdatebySelect}
+        />
         <Board
           onPressBoard={onPressBoard}
           turns={turns}
