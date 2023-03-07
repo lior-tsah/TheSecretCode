@@ -1,33 +1,33 @@
 export const colorsByLevels = [
   [
-    {color: '#ed81a1', id: 0, key: 0, isChosen: false}, //pink
-    {color: '#be0000', id: 1, key: 1, isChosen: false}, //red
-    {color: '#836F6F', id: 2, key: 2, isChosen: false}, //gray
-    {color: '#FFE135', id: 3, key: 3, isChosen: false}, //yellow
-    {color: '#5BC85B', id: 4, key: 4, isChosen: false}, //green
-    {color: '#FF6700', id: 5, key: 5, isChosen: false}, //orange
+    {color: '#ed81a1', id: 0, key: 0, isChosen: false, isSelected: false}, //pink
+    {color: '#be0000', id: 1, key: 1, isChosen: false, isSelected: false}, //red
+    {color: '#836F6F', id: 2, key: 2, isChosen: false, isSelected: false}, //gray
+    {color: '#FFE135', id: 3, key: 3, isChosen: false, isSelected: false}, //yellow
+    {color: '#5BC85B', id: 4, key: 4, isChosen: false, isSelected: false}, //green
+    {color: '#FF6700', id: 5, key: 5, isChosen: false, isSelected: false}, //orange
   ],
   [
-    {color: '#ed81a1', id: 0, key: 0, isChosen: false}, //pink
-    {color: '#be0000', id: 1, key: 1, isChosen: false}, //red
-    {color: '#836F6F', id: 2, key: 2, isChosen: false}, //gray
-    {color: '#FFE135', id: 3, key: 3, isChosen: false}, //yellow
-    {color: '#5BC85B', id: 4, key: 4, isChosen: false}, //green
-    {color: '#FF6700', id: 5, key: 5, isChosen: false}, //orange
-    {color: '#FFFFFF', id: 6, key: 6, isChosen: false}, //white
-    {color: '#800080', id: 7, key: 7, isChosen: false}, //purple
+    {color: '#ed81a1', id: 0, key: 0, isChosen: false, isSelected: false}, //pink
+    {color: '#be0000', id: 1, key: 1, isChosen: false, isSelected: false}, //red
+    {color: '#836F6F', id: 2, key: 2, isChosen: false, isSelected: false}, //gray
+    {color: '#FFE135', id: 3, key: 3, isChosen: false, isSelected: false}, //yellow
+    {color: '#5BC85B', id: 4, key: 4, isChosen: false, isSelected: false}, //green
+    {color: '#FF6700', id: 5, key: 5, isChosen: false, isSelected: false}, //orange
+    {color: '#FFFFFF', id: 6, key: 6, isChosen: false, isSelected: false}, //white
+    {color: '#800080', id: 7, key: 7, isChosen: false, isSelected: false}, //purple
   ],
   [
-    {color: '#ed81a1', id: 0, key: 0, isChosen: false}, //pink
-    {color: '#be0000', id: 1, key: 1, isChosen: false}, //red
-    {color: '#836F6F', id: 2, key: 2, isChosen: false}, //gray
-    {color: '#FFE135', id: 3, key: 3, isChosen: false}, //yellow
-    {color: '#5BC85B', id: 4, key: 4, isChosen: false}, //green
-    {color: '#FF6700', id: 5, key: 5, isChosen: false}, //orange
-    {color: '#FFFFFF', id: 6, key: 6, isChosen: false}, //white
-    {color: '#800080', id: 7, key: 7, isChosen: false}, //purple
-    {color: '#000000', id: 8, key: 8, isChosen: false}, //black
-    {color: '#41D8D8', id: 9, key: 9, isChosen: false}, //cyan
+    {color: '#ed81a1', id: 0, key: 0, isChosen: false, isSelected: false}, //pink
+    {color: '#be0000', id: 1, key: 1, isChosen: false, isSelected: false}, //red
+    {color: '#836F6F', id: 2, key: 2, isChosen: false, isSelected: false}, //gray
+    {color: '#FFE135', id: 3, key: 3, isChosen: false, isSelected: false}, //yellow
+    {color: '#5BC85B', id: 4, key: 4, isChosen: false, isSelected: false}, //green
+    {color: '#FF6700', id: 5, key: 5, isChosen: false, isSelected: false}, //orange
+    {color: '#FFFFFF', id: 6, key: 6, isChosen: false, isSelected: false}, //white
+    {color: '#800080', id: 7, key: 7, isChosen: false, isSelected: false}, //purple
+    {color: '#000000', id: 8, key: 8, isChosen: false, isSelected: false}, //black
+    {color: '#41D8D8', id: 9, key: 9, isChosen: false, isSelected: false}, //cyan
   ],
 ];
 export const initialTurns = [
@@ -73,6 +73,9 @@ export const menuURL =
   'https://cdn4.vectorstock.com/i/1000x1000/25/23/dartboard-with-dart-over-blue-background-vector-2122523.jpg';
 export const wheelURL =
   'https://cdn4.iconfinder.com/data/icons/blue-common-symbols-vol-1/1024/cog_wheel_sprocket_piece_gear_app_mobile-512.png';
+
+export const XURL =
+  'https://icon2.cleanpng.com/20180326/gew/kisspng-red-computer-icons-clip-art-cross-5ab9206bf219e5.8839672315220818999917.jpg';
 export const language = {
   he: {
     //------- Game ---------

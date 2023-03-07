@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
+import Xbutton from './Xbutton';
 
 const Turn = props => {
   const {turnIndex, turn, numOfTurn, onPressBoard, result, chosenColor} = props;
@@ -34,8 +35,9 @@ const Turn = props => {
                 turn[key]?.color
                   ? [styles.miniball, {backgroundColor: turn[key].color}]
                   : styles.miniball
-              }
-            />
+              }>
+              {turn[key]?.isSelected && <Xbutton size={10} />}
+            </View>
           </TouchableOpacity>
         ))}
       </View>
