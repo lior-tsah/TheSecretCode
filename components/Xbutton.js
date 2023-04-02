@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
   winning: {
     width: '100%',
     flex: 7,
-    alignItems: 'center',
-    justifyContent: 'center',
+    //alignItems: 'center',
+    //justifyContent: 'center',
     resizeMode: 'contain',
   },
 });

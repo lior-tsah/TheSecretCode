@@ -4,10 +4,17 @@ import React from 'react';
 const Dropdown = props => {
   const {options, placeholder, backgroundColor, onSelectOption, textColor} =
     props;
- 
+
   return (
     <SelectDropdown
-      buttonStyle={{height: 40, backgroundColor: backgroundColor, width: 200}}
+      buttonStyle={{
+        height: 40,
+        backgroundColor: backgroundColor,
+        width: 200,
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#fff',
+      }}
       buttonTextStyle={{color: textColor}}
       rowTextStyle={{color: textColor}}
       dropdownStyle={{backgroundColor: backgroundColor}}

@@ -1,10 +1,11 @@
 import React, {useMemo, useContext} from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {language, wheelURL} from '../data';
 import {SettingsContext} from '../SettingsContext';
 import Dropdown from '../components/Dropdown';
 import SpinIcon from '../components/SpinIcon';
+import RegularButton from '../components/RegularButton';
 const Settings = props => {
   const navigation = useNavigation();
   const {currLanguage, setCurrLanguage, setLevel} = useContext(SettingsContext);
@@ -67,10 +68,13 @@ const Settings = props => {
 
         {buttonsDetails.map((button, index) => (
           <View style={styles.button} key={index}>
-            <Button
-              title={button.title}
+            <RegularButton
               onPress={button.func}
+              text={button.title}
               color={button.color}
+              fontSize={18}
+              width={200}
+              height={40}
             />
           </View>
         ))}

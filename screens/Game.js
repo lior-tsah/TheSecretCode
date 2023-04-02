@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useRef, useState, useContext} from 'react';
-import {Button, StyleSheet, View, Alert} from 'react-native';
+import {StyleSheet, View, Alert} from 'react-native';
 import Board from '../components/Board';
 import NavColors from '../components/NavColors';
 import {
@@ -15,6 +15,7 @@ import {
 } from '../data';
 import {useNavigation} from '@react-navigation/native';
 import {SettingsContext} from '../SettingsContext';
+import RegularButton from '../components/RegularButton';
 
 const Game = props => {
   const navigation = useNavigation();
@@ -121,30 +122,38 @@ const Game = props => {
     }
   }, [numOfTurn]);
 
-  const showConfirmDialog = () => {
-    return Alert.alert(
-      language[currLanguage].warningAlertTitle,
-      language[currLanguage].warningAlertDetails,
-      [
-        // The "Yes" button
-        {
-          text: language[currLanguage].yes,
-          onPress: () => setShowSecretCode(true),
-        },
-        // The "No" button
-        // Does nothing but dismiss the dialog when tapped
-        {
-          text: language[currLanguage].no,
-        },
-      ],
-    );
+  const showConfirmDialog = (title, details, onPress) => {
+    return Alert.alert(title, details, [
+      // The "Yes" button
+      {
+        text: language[currLanguage].yes,
+        onPress: onPress,
+      },
+      // The "No" button
+      // Does nothing but dismiss the dialog when tapped
+      {
+        text: language[currLanguage].no,
+        style: 'destructive',
+      },
+    ]);
   };
   const onPressShowSecret = () => {
     if (isShowSecretCode) {
       setShowSecretCode(false);
     } else {
-      showConfirmDialog();
+      showConfirmDialog(
+        language[currLanguage].warningAlertTitle,
+        language[currLanguage].warningAlertDetails,
+        () => setShowSecretCode(true),
+      );
     }
+  };
+  const onPressBackToTheMainMenu = () => {
+    showConfirmDialog(
+      language[currLanguage].warningAlertTitle,
+      language[currLanguage].warningAlertBackDetails,
+      () => navigation.navigate('Menu'),
+    );
   };
   return (
     <View style={styles.container}>
@@ -166,31 +175,34 @@ const Game = props => {
           chosenColor={!!chosenColor}
         />
       </View>
-      <View style={styles.finshTurnbutton}>
-        <Button
-          title={language[currLanguage].makeMoveBtn}
-          onPress={calculateResults}
-          disabled={
-            !currentTurn ||
-            Object.values(currentTurn).filter(val => val !== null).length !== 4
-          }
-        />
-      </View>
+
+      <RegularButton
+        width={'100%'}
+        onPress={calculateResults}
+        text={language[currLanguage].makeMoveBtn}
+        color={'cyan'}
+        disabled={
+          !currentTurn ||
+          Object.values(currentTurn).filter(val => val !== null).length !== 4
+        }
+        textColor={'#000'}
+      />
+
       <View style={styles.button}>
-        <View style={{width: '30%'}}>
-          <Button
-            title={language[currLanguage].showSecretBtn}
-            onPress={onPressShowSecret}
-            color="red"
-          />
-        </View>
-        <View style={{width: '30%'}}>
-          <Button
-            title={language[currLanguage].backToMainMenuBtn}
-            onPress={() => navigation.navigate('Menu')}
-            color="green"
-          />
-        </View>
+        <RegularButton
+          width={'35%'}
+          onPress={onPressShowSecret}
+          text={language[currLanguage].showSecretBtn}
+          color={'red'}
+          fontSize={16}
+        />
+        <RegularButton
+          width={'35%'}
+          onPress={onPressBackToTheMainMenu}
+          text={language[currLanguage].backToMainMenuBtn}
+          color={'green'}
+          fontSize={16}
+        />
       </View>
     </View>
   );
@@ -203,11 +215,6 @@ const styles = StyleSheet.create({
     flex: 10,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  finshTurnbutton: {
-    width: '100%',
-    justifyContent: 'center',
-    padding: 10,
   },
   button: {
     flexDirection: 'row',

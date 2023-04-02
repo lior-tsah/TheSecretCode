@@ -79,11 +79,12 @@ export const XURL =
 export const language = {
   he: {
     //------- Game ---------
-    showSecretBtn: 'הראה לי את הקוד',
+    showSecretBtn: 'הראה לי את הקוד הסודי',
     makeMoveBtn: 'בצע מהלך!',
     backToMainMenuBtn: 'חזרה לתפריט הראשי',
     warningAlertTitle: 'האם אתה בטוח?',
     warningAlertDetails: 'אתה בטוח רוצה לצפות בקוד הסודי עכשיו?',
+    warningAlertBackDetails:'האם אתה בטוח שברצונך לסיים כעת את המשחק ולחזור לתפריט הראשי?',
     yes: 'כן',
     no: 'לא',
 
@@ -96,11 +97,14 @@ export const language = {
     ruleTitle: 'איך לשחק?',
     ruleSubTitle1: 'מטרת המשחק:',
     ruleSubTitle2: 'מהלך המשחק:',
+    ruleSubTitle3: 'עזרים:',
     text1: 'עליך למצוא את הקוד הסודי המורכב מארבעה צבעים שונים.',
     text2: 'לרשותך 10 תורות. (הראשון מתחיל מהשורה התחתונה).',
     text3: `בכל תור עליך לבחור 4 צבעים שונים בשורה באופן הבא: יש לבחור צבע מרשימת הצבעים בצד. לאחר בחירת הצבע ניתן להציבו בלוח על ידי לחיצה עליו במקום המתאים.`,
     text4: `לאחר שנבחרו ארבעה צבעים, ניתן לסיים את התור. כל עוד התור לא נגמר, ניתן להסיר צבע נבחר מהלוח על ידי לחיצה עליו. לאחר סיום התור, אנו מקבלים רמזים באופן הבא:`,
     text5: `על כל צבע נכון שנמצא במיקום הנכון ברצף, מקבלים "בול" (מסומן בסיכה אדומה). על כל צבע נכון שלא נמצא במיקום הנכון ברצף מקבלים "פגיעה" (סיכה צהובה). המשחק מסתיים בניצחון כאשר כל ארבעת הצבעים מתגלים בעמדה הנכונה (ארבעה "בולים").`,
+    text6: `ליד כל צבע מופיע כפתור X קטן. לחיצה עליו תסמן את כל מופעי הצבע בלוח ותשבית את אפשרות בחירת הצבע. (לחיצה נוספת תפעיל מחדש את הצבע ותבטל את הסימון). `,
+    text7: `מומלץ להשתמש בעזר זה כאשר הנך חושב שצבע זה אינו חלק מצבעי הקוד הסודי.`,
     backBtn: 'חזרה',
 
     //------- Settings -----------
@@ -116,11 +120,12 @@ export const language = {
   },
   en: {
     //------- Game ---------
-    showSecretBtn: 'Show Me the secret',
+    showSecretBtn: 'Show me the secret',
     makeMoveBtn: 'Make a move!',
     backToMainMenuBtn: 'Back to main menu',
     warningAlertTitle: 'Are your sure?',
     warningAlertDetails: 'Are you sure you want to watch the secret code now?',
+    warningAlertBackDetails:'Are you sure you want to end the game now and return to the main menu?',
     yes: 'Yes',
     no: 'No',
 
@@ -133,6 +138,7 @@ export const language = {
     ruleTitle: 'How To Play?',
     ruleSubTitle1: 'Goal:',
     ruleSubTitle2: 'Gameplay:',
+    ruleSubTitle3: 'Helpers:',
     text1: ' You need to find the code consisting of four different colors.',
     text2: ' You have 10 turns. (The first starts from the bottom line).',
     text3: ` In each turn you must choose 4 different colors in a row as follows:
@@ -148,6 +154,10 @@ export const language = {
     color that is not in the correct position in the sequence, you get a
     "hit" (yellow pin). The game ends in victory when all four colors are
     discovered in the correct position (four "bulls").`,
+    text6: `A small X button appears next to each color. 
+    Clicking on it will mark all instances of the color in the palette and disable the color selection option. 
+    (Another click will reactivate the color and cancel the check).`,
+    text7: `It is recommended to use this aid when you think that this color is not part of the secret code colors.`,
     backBtn: 'Back',
 
     //------- Settings -----------

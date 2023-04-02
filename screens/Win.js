@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
-import {StyleSheet, Image, View, Button} from 'react-native';
+import {StyleSheet, Image, View} from 'react-native';
 import {language} from '../data';
 import {useNavigation} from '@react-navigation/native';
 import {SettingsContext} from '../SettingsContext';
+import RegularButton from '../components/RegularButton';
 
 const Win = props => {
   const navigation = useNavigation();
@@ -18,9 +19,12 @@ const Win = props => {
         style={styles.winning}
       />
       <View style={styles.buttons}>
-        <Button
-          title={language[currLanguage].backToMainMenuBtn}
+        <RegularButton
+          width={'100%'}
           onPress={() => navigation.navigate('Menu')}
+          text={language[currLanguage].backToMainMenuBtn}
+          color={'green'}
+          fontSize={20}
         />
       </View>
     </View>
@@ -33,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
     height: '100%',
-    backgroundColor: '#00004f'
+    backgroundColor: '#00004f',
   },
   winning: {
     width: '100%',

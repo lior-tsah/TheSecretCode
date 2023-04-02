@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
-import {StyleSheet, Text, View, Image, Button} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {menuURL, language} from '../data';
-import { SettingsContext } from '../SettingsContext';
+import {SettingsContext} from '../SettingsContext';
+import RegularButton from '../components/RegularButton';
 const Menu = () => {
   const navigation = useNavigation();
   const {currLanguage} = useContext(SettingsContext);
@@ -17,19 +18,19 @@ const Menu = () => {
         style={styles.winning}
       />
       <View style={styles.button}>
-        <Button
-          title={language[currLanguage].startGameBtn}
-          onPress={() =>
-            navigation.navigate('Game')
-          }
-          color="green"
+        <RegularButton
+          width={'100%'}
+          onPress={() => navigation.navigate('Game')}
+          text={language[currLanguage].startGameBtn}
+          color={'green'}
+          fontSize={18}
         />
-        <Button
-          title={language[currLanguage].gameSettings}
-          onPress={() =>
-            navigation.navigate('Settings')
-          }
-          color="blue"
+        <RegularButton
+          width={'100%'}
+          onPress={() => navigation.navigate('Settings')}
+          text={language[currLanguage].gameSettings}
+          color={'blue'}
+          fontSize={18}
         />
       </View>
     </View>

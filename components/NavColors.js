@@ -33,7 +33,7 @@ const NavColors = props => {
           </TouchableOpacity>
 
           <Xbutton
-            size={15}
+            size={20}
             onPress={() => {
               color.isSelected = !color.isSelected;
               color.isChosen = false;

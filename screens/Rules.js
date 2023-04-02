@@ -1,43 +1,41 @@
 import React, {useContext} from 'react';
-import {Text, Button, View, ScrollView, StyleSheet} from 'react-native';
+import {Text, View, ScrollView, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {language} from '../data';
 import {SettingsContext} from '../SettingsContext';
+import RegularButton from '../components/RegularButton';
 const Rules = props => {
   const navigation = useNavigation();
-  const {currLanguage, setCurrLanguage} = useContext(SettingsContext);
+  const {currLanguage} = useContext(SettingsContext);
 
   const textArray = [
-    language[currLanguage].text2,
-    language[currLanguage].text3,
-    language[currLanguage].text4,
-    language[currLanguage].text5,
+    {text:language[currLanguage].ruleSubTitle1, style: styles.subTitle}, 
+    {text:language[currLanguage].text2, style: styles.text}, 
+    {text:language[currLanguage].ruleSubTitle2, style: styles.subTitle}, 
+    {text:language[currLanguage].text3, style: styles.text}, 
+    {text:language[currLanguage].text4, style: styles.text}, 
+    {text:language[currLanguage].text5, style: styles.text}, 
+    {text:language[currLanguage].ruleSubTitle3, style: styles.subTitle}, 
+    {text:language[currLanguage].text6, style: styles.text}, 
+    {text:language[currLanguage].text7, style: styles.text}, 
   ];
   return (
     <View style={styles.main}>
       <Text style={styles.title}>{language[currLanguage].ruleTitle}</Text>
-
       <ScrollView style={styles.scroll}>
-        <Text style={styles.subTitle}>
-          {language[currLanguage].ruleSubTitle1}
-        </Text>
-        <Text style={styles.text}>{language[currLanguage].text1}</Text>
-        <Text style={styles.subTitle}>
-          {language[currLanguage].ruleSubTitle2}
-        </Text>
-        {textArray.map((text, index) => (
-          <Text style={styles.text} key={index}>
-            {text}
+        {textArray.map((textObj, index) => (
+          <Text style={textObj.style} key={index}>
+            {textObj.text}
           </Text>
         ))}
       </ScrollView>
       <View style={{marginBottom: 15}}>
-        <Button
-          title={language[currLanguage].backBtn}
-          onPress={() =>
-            navigation.navigate('Settings')
-          }
-          color="green"
+        <RegularButton
+          width={100}
+          onPress={() => navigation.navigate('Settings')}
+          text={language[currLanguage].backBtn}
+          color={'green'}
+          fontSize={18}
         />
       </View>
     </View>
