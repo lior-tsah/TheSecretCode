@@ -3,7 +3,7 @@ import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 import Xbutton from './Xbutton';
 
 const Turn = props => {
-  const {turnIndex, turn, numOfTurn, onPressBoard, result, chosenColor} = props;
+  const {turnIndex, turn, numOfTurn, onPressBoard, result, chosenColor, isShowSecretCode} = props;
 
   const renderResults = (res, index) => {
     let background = '#000';
@@ -18,7 +18,11 @@ const Turn = props => {
     return (
       <View
         key={index.toString()}
-        style={[styles.resball, {backgroundColor: background}]}
+        style={[
+          styles.resball,
+          {backgroundColor: background},
+        //  index % 2 === 0 && {top: 5},
+        ]}
       />
     );
   };
@@ -27,7 +31,7 @@ const Turn = props => {
       <View style={styles.soldiers}>
         {Object.keys(turn).map((key, index) => (
           <TouchableOpacity
-            disabled={turnIndex !== numOfTurn || !chosenColor}
+            disabled={turnIndex !== numOfTurn || !chosenColor || isShowSecretCode}
             onPress={() => onPressBoard(key)}
             key={`${index}.`}>
             <View

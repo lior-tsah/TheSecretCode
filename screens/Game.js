@@ -133,7 +133,6 @@ const Game = props => {
       // Does nothing but dismiss the dialog when tapped
       {
         text: language[currLanguage].no,
-        style: 'destructive',
       },
     ]);
   };
@@ -175,34 +174,49 @@ const Game = props => {
           chosenColor={!!chosenColor}
         />
       </View>
+      <View style={{flex: 2, margin: 10, justifyContent: 'center'}}>
+        {isShowSecretCode ? (
+          <RegularButton
+            width={'100%'}
+            height={40}
+            onPress={() => navigation.navigate('Menu')}
+            text={language[currLanguage].backToMainMenuBtn}
+            color={'green'}
+            fontSize={20}
+          />
+        ) : (
+          <View>
+            <RegularButton
+              width={'100%'}
+              onPress={calculateResults}
+              text={language[currLanguage].makeMoveBtn}
+              color={'cyan'}
+              disabled={
+                !currentTurn ||
+                Object.values(currentTurn).filter(val => val !== null)
+                  .length !== 4
+              }
+              textColor={'#000'}
+            />
 
-      <RegularButton
-        width={'100%'}
-        onPress={calculateResults}
-        text={language[currLanguage].makeMoveBtn}
-        color={'cyan'}
-        disabled={
-          !currentTurn ||
-          Object.values(currentTurn).filter(val => val !== null).length !== 4
-        }
-        textColor={'#000'}
-      />
-
-      <View style={styles.button}>
-        <RegularButton
-          width={'35%'}
-          onPress={onPressShowSecret}
-          text={language[currLanguage].showSecretBtn}
-          color={'red'}
-          fontSize={16}
-        />
-        <RegularButton
-          width={'35%'}
-          onPress={onPressBackToTheMainMenu}
-          text={language[currLanguage].backToMainMenuBtn}
-          color={'green'}
-          fontSize={16}
-        />
+            <View style={styles.button}>
+              <RegularButton
+                width={'35%'}
+                onPress={onPressShowSecret}
+                text={language[currLanguage].showSecretBtn}
+                color={'red'}
+                fontSize={16}
+              />
+              <RegularButton
+                width={'35%'}
+                onPress={onPressBackToTheMainMenu}
+                text={language[currLanguage].backToMainMenuBtn}
+                color={'green'}
+                fontSize={16}
+              />
+            </View>
+          </View>
+        )}
       </View>
     </View>
   );

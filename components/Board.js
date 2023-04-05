@@ -40,6 +40,7 @@ const Board = props => {
             turnIndex={turnIndex}
             turn={turn}
             numOfTurn={numOfTurn}
+            isShowSecretCode={isShowSecretCode}
             onPressBoard={onPressBoard}
             result={results[turnIndex].sort((a, b) => a - b)}
             chosenColor={chosenColor}
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flex: 4,
   },
-  title: {fontWeight: 'bold'},
+  title: {fontWeight: 'bold', color: '#000'},
   secretCode: {
     flex: 1,
     borderTopLeftRadius: 15,
