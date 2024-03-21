@@ -73,7 +73,8 @@ export const menuURL =
   'https://cdn4.vectorstock.com/i/1000x1000/25/23/dartboard-with-dart-over-blue-background-vector-2122523.jpg';
 export const wheelURL =
   'https://cdn4.iconfinder.com/data/icons/blue-common-symbols-vol-1/1024/cog_wheel_sprocket_piece_gear_app_mobile-512.png';
-
+export const threeDotsURL =
+  'https://cdn4.iconfinder.com/data/icons/utilities-part-2/64/dots-512.png';
 export const XURL =
   'https://icon2.cleanpng.com/20180326/gew/kisspng-red-computer-icons-clip-art-cross-5ab9206bf219e5.8839672315220818999917.jpg';
 export const language = {
@@ -84,10 +85,11 @@ export const language = {
     backToMainMenuBtn: 'חזרה לתפריט הראשי',
     warningAlertTitle: 'האם אתה בטוח?',
     warningAlertDetails: 'אתה בטוח רוצה לצפות בקוד הסודי עכשיו?',
-    warningAlertBackDetails:'האם אתה בטוח שברצונך לסיים כעת את המשחק ולחזור לתפריט הראשי?',
+    warningAlertBackDetails:
+      'האם אתה בטוח שברצונך לסיים כעת את המשחק ולחזור לתפריט הראשי?',
     yes: 'כן',
     no: 'לא',
-
+    turn: 'תור',
     //--------- Menu ---------
     mainTitle: 'בול פגיעה',
     startGameBtn: 'התחל משחק',
@@ -125,10 +127,11 @@ export const language = {
     backToMainMenuBtn: 'Back to main menu',
     warningAlertTitle: 'Are your sure?',
     warningAlertDetails: 'Are you sure you want to watch the secret code now?',
-    warningAlertBackDetails:'Are you sure you want to end the game now and return to the main menu?',
+    warningAlertBackDetails:
+      'Are you sure you want to end the game now and return to the main menu?',
     yes: 'Yes',
     no: 'No',
-
+    turn: 'Turn',
     //Menu
     mainTitle: 'The Secret Code',
     startGameBtn: 'Start Game',
