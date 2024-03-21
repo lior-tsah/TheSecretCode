@@ -10,6 +10,14 @@ const Settings = props => {
   const navigation = useNavigation();
   const {currLanguage, setCurrLanguage, setLevel} = useContext(SettingsContext);
 
+  const renderDropdownIcon = () => {
+    return (
+      <View style={{marginLeft: 10}}>
+        <Text>🔽</Text>
+      </View>
+    );
+  };
+
   const levels = useMemo(() => {
     return [
       {label: `${language.en.easy} - ${language.he.easy}`, value: 0},
@@ -43,6 +51,9 @@ const Settings = props => {
       placeholder: language[currLanguage].levelPlaceholder,
       onSelectOption: option => setLevel(option.value),
       textColor: 'black',
+      height: 40,
+      width: 200,
+      renderDropdownIcon,
     },
     {
       options: languages,
@@ -50,6 +61,9 @@ const Settings = props => {
       placeholder: language[currLanguage].selectLanguagePlacehlder,
       onSelectOption: option => setCurrLanguage(option.value),
       textColor: 'white',
+      height: 40,
+      width: 200,
+      renderDropdownIcon,
     },
   ];
 

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useRef, useState, useContext} from 'react';
-import {StyleSheet, View, Alert} from 'react-native';
+import {StyleSheet, View, Alert, Image} from 'react-native';
 import Board from '../components/Board';
 import NavColors from '../components/NavColors';
 import {
@@ -12,10 +12,12 @@ import {
   winningURL,
   loseURL,
   language,
+  threeDotsURL,
 } from '../data';
 import {useNavigation} from '@react-navigation/native';
 import {SettingsContext} from '../SettingsContext';
 import RegularButton from '../components/RegularButton';
+import Header from '../components/Header';
 
 const Game = props => {
   const navigation = useNavigation();
@@ -154,8 +156,28 @@ const Game = props => {
       () => navigation.navigate('Menu'),
     );
   };
+
+  const levels = [
+    {
+      label: language[currLanguage].backToMainMenuBtn,
+      func: onPressBackToTheMainMenu,
+    },
+    {
+      label: language[currLanguage].showSecretBtn,
+      func: onPressShowSecret,
+    },
+  ];
+
+  const headerProps = {
+    levels,
+    isShowSecretCode,
+    numOfTurn,
+    currLanguage,
+  };
   return (
     <View style={styles.container}>
+      <Header {...headerProps} />
+
       <View style={styles.main}>
         <NavColors
           setChosenColor={setChosenColor}
@@ -174,20 +196,26 @@ const Game = props => {
           chosenColor={!!chosenColor}
         />
       </View>
-      <View style={{flex: 2, margin: 10, justifyContent: 'center'}}>
-        {isShowSecretCode ? (
-          <RegularButton
-            width={'100%'}
-            height={40}
-            onPress={() => navigation.navigate('Menu')}
-            text={language[currLanguage].backToMainMenuBtn}
-            color={'green'}
-            fontSize={20}
-          />
-        ) : (
-          <View>
+      <View
+        style={{
+          flex: 1,
+          marginBottom: 20,
+          padding: 10,
+        }}>
+        <View>
+          {isShowSecretCode ? (
             <RegularButton
               width={'100%'}
+              height={'90%'}
+              onPress={() => navigation.navigate('Menu')}
+              text={language[currLanguage].backToMainMenuBtn}
+              color={'green'}
+              fontSize={20}
+            />
+          ) : (
+            <RegularButton
+              width={'100%'}
+              height={'90%'}
               onPress={calculateResults}
               text={language[currLanguage].makeMoveBtn}
               color={'cyan'}
@@ -198,25 +226,8 @@ const Game = props => {
               }
               textColor={'#000'}
             />
-
-            <View style={styles.button}>
-              <RegularButton
-                width={'35%'}
-                onPress={onPressShowSecret}
-                text={language[currLanguage].showSecretBtn}
-                color={'red'}
-                fontSize={16}
-              />
-              <RegularButton
-                width={'35%'}
-                onPress={onPressBackToTheMainMenu}
-                text={language[currLanguage].backToMainMenuBtn}
-                color={'green'}
-                fontSize={16}
-              />
-            </View>
-          </View>
-        )}
+          )}
+        </View>
       </View>
     </View>
   );
@@ -226,14 +237,12 @@ const styles = StyleSheet.create({
   container: {height: '100%', backgroundColor: '#00004f'},
   main: {
     justifyContent: 'space-between',
-    flex: 10,
+    flex: 12,
     flexDirection: 'row',
     alignItems: 'center',
   },
   button: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 10,
+    padding: 20,
   },
 });
 
